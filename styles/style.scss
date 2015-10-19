@@ -1,0 +1,18 @@
+// GENERAL SETTINGS
+@import "setup";
+
+@mixin fontSize($fontSize) {
+	font-size: $fontSize *1px;
+	font-size: ($fontSize / 10) * 1rem;
+}
+
+$purple: #7426d9;
+$green: #D0CB71;
+$seafoam: #a7e2b7;
+
+html {
+	font-size: 62.5%;
+}
+body {
+	@include fontSize (16);
+}
