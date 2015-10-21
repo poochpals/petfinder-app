@@ -13,6 +13,85 @@ $seafoam: #a7e2b7;
 html {
 	font-size: 62.5%;
 }
+
 body {
-	@include fontSize (16);
+	@include fontSize(16);
+	font-family: "Montserrat"
 }
+
+.wrapper {
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+// HEADER
+
+
+header {
+	height: 100vh;
+	max-width: 100%;
+	background: url() $seafoam;
+	padding: 17% 0;
+	h1 {
+		font-family: "Archivo Black", sans-serif;
+		color: black;
+		text-align: center;
+		@include fontSize(70);
+	}
+	p {
+		text-align: center;
+		@include fontSize(18);
+		font-weight: 200;
+	}
+	form {
+		text-align: center;
+		margin: 50px 0 0 0;
+		input {
+			margin: 0 auto;
+		}
+	}
+}
+
+// DOG SECTION
+
+section {
+	padding: 7% 0;
+	h2 {
+		@include fontSize(32);
+		text-align: center;
+	}
+}
+div.dogGallery {
+	display: flex;
+	flex-position: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	div.dogBox {
+		flex: 1 0 calc(25% - 20px);
+		height: 150px;
+		margin: 10px;
+		background: $green;
+	}
+}
+
+div.morePooches {
+	display: flex;
+	button {
+		justify-content: flex-end;
+	}	
+}
+
+// FOOTER
+
+footer {
+	margin-top: 15%;
+	text-align: center;
+	background: $seafoam;
+	margin: 0;
+	p {
+		padding: 3px 0;
+		margin: 0;
+	}
+}
+
+
