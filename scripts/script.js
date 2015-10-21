@@ -12,8 +12,12 @@ petFinder.apiSecret = '7e8338ee0e78c9548e81e40f0eef7191';
 // - when pet is clicked then display more information including: shelter name, phone #, location, email, etc.
 
 
+
 petFinder.getData = function(city) {
 	var apiurl = 'http://api.petfinder.com/pet.find?key=' + petFinder.apiKey + '&location=' + city + '&format=json&animal=dog';
+
+petFinder.getData = function(city) {
+
 	$.ajax({
 		url: apiurl,
 		dataType: 'jsonp',
