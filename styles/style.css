@@ -180,9 +180,9 @@ div.dogGallery {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   div.dogGallery div.dogBox {
-    -webkit-flex: 1 0 calc(25% - 20px);
-        -ms-flex: 1 0 calc(25% - 20px);
-            flex: 1 0 calc(25% - 20px);
+    -webkit-flex: 1 0 calc(15% - 20px);
+        -ms-flex: 1 0 calc(15% - 20px);
+            flex: 1 0 calc(15% - 20px);
     height: 150px;
     margin: 10px;
     background: #D0CB71; }

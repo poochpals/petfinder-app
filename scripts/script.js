@@ -11,6 +11,8 @@ petFinder.apiSecret = '7e8338ee0e78c9548e81e40f0eef7191';
 // - display pets and more info on hover and focused photo, name, age, sex, breed 
 // - when pet is clicked then display more information including: shelter name, phone #, location, email, etc.
 
+
+// This performs the function of getting the data from the api. Sends petfinderDisplayPets the results.
 petFinder.getData = function(city) {
 var apiurl = 'http://api.petfinder.com/pet.find?key=' + petFinder.apiKey + '&location=' + city + '&format=json&animal=dog';
 	$.ajax({
@@ -18,34 +20,43 @@ var apiurl = 'http://api.petfinder.com/pet.find?key=' + petFinder.apiKey + '&loc
 		dataType: 'jsonp',
 		method: 'GET'
 	}).then(function(res){
-		console.log(res.petfinder.pets.pet);
+		// console.log(res.petfinder.pets.pet);
 		petFinder.displayPets(res.petfinder.pets.pet);
 	});
 };
 
+
+//This takes the users location information and sorts the data based on that. 
 petFinder.getLocation = function() {
 	$('.searchForm').on('submit', function(e){
 		e.preventDefault();
 		var location = $('#submitButton').val();
 		$('#submitButton').val('');
-		console.log(location);
 		petFinder.getData(location);
 	});
 };
 
+
+//This displays images of the pets in the users area on the page. 
 petFinder.displayPets = function(pets) {
 	$.each(pets, function(i, value){
-		console.log("inside displayPets");
-		console.log(value);
+		console.log(pets[i])
+		if(pets[i].media.photos != undefined) {
+			console.log("inside displayPets");
+			console.log(pets[i].media.photos.photo[0].$t )	
+			$dogBox = $('<div>').addClass('dogBox').css("background","url("+pets[i].media.photos.photo[0].$t+")no-repeat").css("background-size", "cover");
+			$('.dogGallery').append($dogBox);
+		};
 	});
 };
+
+
+
 
 petFinder.init = function() {
   petFinder.getData();
   petFinder.getLocation();
 };
-
-
 
 //Document ready. Runs everything once it's ready. 
 $(document).ready(function(){
