@@ -185,16 +185,25 @@ div.dogGallery {
             flex: 1 0 calc(15% - 20px);
     height: 150px;
     margin: 10px;
-    background: #D0CB71; }
+    padding: 0;
+    background: #D0CB71;
+    position: relative; }
 
-div.morePooches {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  div.morePooches button {
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
+p.overlay {
+  background: #D0CB71;
+  color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.5s; }
+
+.dogGallery .dogBox:hover p.overlay {
+  opacity: 1; }
 
 footer {
   margin-top: 15%;

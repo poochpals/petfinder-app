@@ -70,16 +70,30 @@ div.dogGallery {
 		flex: 1 0 calc(15% - 20px);
 		height: 150px;
 		margin: 10px;
+		padding: 0;
 		background: $green;
+		position: relative;
 	}
 }
+	p.overlay {
+		background: $green;
+		color: black;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		margin: 0;
+		padding:0;
+		transition: opacity 0.5s;
+	}
 
-div.morePooches {
-	display: flex;
-	button {
-		justify-content: flex-end;
-	}	
+
+.dogGallery .dogBox:hover p.overlay {
+	opacity: 1;
 }
+
 
 // FOOTER
 

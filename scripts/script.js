@@ -12,7 +12,7 @@ petFinder.apiSecret = '7e8338ee0e78c9548e81e40f0eef7191';
 // - when pet is clicked then display more information including: shelter name, phone #, location, email, etc.
 
 
-// This performs the function of getting the data from the api. Sends petfinderDisplayPets the results.
+// This method performs the function of getting the data from the api. Sends petfinderDisplayPets the results.
 petFinder.getData = function(city) {
 var apiurl = 'http://api.petfinder.com/pet.find?key=' + petFinder.apiKey + '&location=' + city + '&format=json&animal=dog';
 	$.ajax({
@@ -26,7 +26,7 @@ var apiurl = 'http://api.petfinder.com/pet.find?key=' + petFinder.apiKey + '&loc
 };
 
 
-//This takes the users location information and sorts the data based on that. 
+//This method takes the users location information and sorts the data based on that. 
 petFinder.getLocation = function() {
 	$('.searchForm').on('submit', function(e){
 		e.preventDefault();
@@ -37,18 +37,42 @@ petFinder.getLocation = function() {
 };
 
 
-//This displays images of the pets in the users area on the page. 
+//This method displays images of the pets in the users area on the page. 
 petFinder.displayPets = function(pets) {
 	$.each(pets, function(i, value){
 		console.log(pets[i])
 		if(pets[i].media.photos != undefined) {
 			console.log("inside displayPets");
-			console.log(pets[i].media.photos.photo[0].$t )	
-			$dogBox = $('<div>').addClass('dogBox').css("background","url("+pets[i].media.photos.photo[0].$t+")no-repeat").css("background-size", "cover");
+			console.log(pets[i].media.photos.photo[0].$t)	
+			var $dogBox = $('<div>').addClass('dogBox').css({
+				"background": "url("+pets[i].media.photos.photo[0].$t+")no-repeat",
+				"background-size": "cover"})
+			var $link = $("<a>").attr('href','#');
+			var $overlay = $('<p>').addClass('overlay');
+			$overlay.data({
+				'name': value.name.$t,
+				'age': value.age.$t,
+				'sex': value.sex.$t,
+				'breed': value.breeds.breed.$t
+			});
+			$link.append($overlay);
+			$dogBox.append($link);
 			$('.dogGallery').append($dogBox);
 		};
 	});
 };
+
+
+//This method displays modal on click
+petFinder.displayModal = function() {
+	$('.dogGallery').on('click', '.overlay',function(e){
+		e.preventDefault();
+
+		//when you click get the data on the overlay and use it how you wish
+
+	});
+};
+
 
 
 
