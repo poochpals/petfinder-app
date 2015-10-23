@@ -75,7 +75,7 @@ div.dogGallery {
 		position: relative;
 	}
 }
-	p.overlay {
+	div.overlay {
 		background: $green;
 		color: black;
 		position: absolute;
@@ -90,7 +90,7 @@ div.dogGallery {
 	}
 
 
-.dogGallery .dogBox:hover p.overlay {
+.dogGallery .dogBox:hover div.overlay {
 	opacity: 1;
 }
 

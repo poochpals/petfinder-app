@@ -189,7 +189,7 @@ div.dogGallery {
     background: #D0CB71;
     position: relative; }
 
-p.overlay {
+div.overlay {
   background: #D0CB71;
   color: black;
   position: absolute;
@@ -202,7 +202,7 @@ p.overlay {
   padding: 0;
   transition: opacity 0.5s; }
 
-.dogGallery .dogBox:hover p.overlay {
+.dogGallery .dogBox:hover div.overlay {
   opacity: 1; }
 
 footer {
