@@ -117,6 +117,39 @@ footer {
 }
 
 // MODAL
+<<<<<<< HEAD
+// .alert {
+// 	position: fixed;
+// 	top: 50px;
+// 	right: 30px;
+// 	bottom: 50px;
+// 	left: 50px;
+// 	background: rgba(255,255,255,0.9);
+// 	z-index: 100;
+// 	border-radius: 10px;
+// 	border: 3px solid grey;
+
+// 	.message {
+// 		position: absolute; 
+// 		// top: 50%;
+// 		// text-align: center;
+// 		// left: 0;
+// 		// right: 0;
+// 		// font-size: 4rem;
+// 	}
+
+// 	#close {
+// 	    position:absolute;
+// 	    display:block;
+// 	    top: 0;
+// 	    right: 0;
+// 	}
+// }
+
+// .hidden {
+// 	// display: none;
+// }
+=======
 .alert {
 	position: fixed;
 	top: 50px;
@@ -148,3 +181,4 @@ footer {
 .hidden {
 	display: none;
 }
+>>>>>>> master
