@@ -21,6 +21,7 @@ petFinder.getData = function(city) {
 			method: 'GET'
 		}).then(function(res){
 			petFinder.displayPets(res.petfinder.pets.pet);
+			// console.log(res.petfinder.pets.pet);
 		});
 };
 
@@ -35,20 +36,25 @@ petFinder.getLocation = function() {
 	});
 };
 
+var clearDogs = function(){
+	$(".dogGallery").html(" ");
+	console.log('clearing');
+}
+
 
 //This method displays images of the pets in the users area on the page. 
 petFinder.displayPets = function(pets) {
+	clearDogs();
 	$.each(pets, function(i, value){
-		console.log(pets[i]);
+		// console.log(pets[i]);
 		if(pets[i].media.photos !== undefined) {
 			// console.log("inside displayPets");
 			// console.log(pets[i].media.photos.photo[0].$t);
 			var $dogBox = $('<div>').addClass('dogBox').css({
 				"background": "url("+pets[i].media.photos.photo[0].$t+")no-repeat",
-				"background-size": "cover"});
+				"background-size": "cover"}).data("shelter", value.shelterId.$t);
 			var $link = $("<a>").attr('href','#');
 			var $overlay = $('<div>').addClass('overlay');
-
 
 			//storing data in a variable to get to later!
 			$overlay.data({
@@ -61,7 +67,7 @@ petFinder.displayPets = function(pets) {
 
 			//displaying dog info on hover
 			$overlay
-				.html("<p class='dogName'>"+ value.name.$t)
+				.html("<p class=dogName>"+ value.name.$t)
 				.append("<p>" + value.age.$t)
 				.append("<p>" + value.sex.$t)
 
@@ -74,11 +80,17 @@ petFinder.displayPets = function(pets) {
 			$dogBox.append($link);
 			$('.dogGallery').append($dogBox);
 
-			petFinder.getShelter($overlay.data('shelter'));
-			// console.log($overlay.data('shelter'));
 		}
 	});
 };
+
+
+//we need to put this event listener outside of the loop(each) above!
+$("body").on("click",".dogBox",function(e) {
+	e.preventDefault();
+	// console.log($(this).data('shelter'));
+	petFinder.getShelter($(this).data('shelter'));
+}); 
 
 
 //This method displays modal on click
@@ -86,25 +98,43 @@ petFinder.getShelter = function(shelterId) {
 	$('.dogGallery').on('click', '.overlay',function(e){
 		e.preventDefault();
 
+		//second ajax call to get shelter info:
 		var apiurl2 = 'http://api.petfinder.com/shelter.get?key=' + petFinder.apiKey + '&id=' + shelterId + '&format=json';
 		//http://api.petfinder.com/shelter.get?key=bef3b0336a3c5097e1138a4f5c127df1&id=ON493&format=json
-
 		$.ajax({
 			url: apiurl2,
 			dataType: 'jsonp',
 			method: 'GET'
 		}).then(function(res){
-			// console.log(res.petfinder.shelter);
-			petFinder.displayModal(res.petfinder.shelter);
+			// var shelter = res.petfinder.shelter.name.$t
+			console.log(res.petfinder.shelter.name.$t);
+			// var shelterName = res.petfinder.shelter.name.$t;
+			// console.log(res);
+
+			// petFinder.displayModal(res.petfinder.shelter);
 		});
 	});
 };
 
 
-petFinder.displayModal = function(shelter) {
-	
-}
 
+// petFinder.displayModal = function(shelter) {
+
+// 	$('.dogGallery').on('click', '.dogBox', function(e){
+// 			e.preventDefault();
+
+// 			console.log(shelter);
+// 			console.log(shelter.name.$t);
+// 			console.log(shelter.address.$t);
+// 	});
+// };
+
+// clear and / or just grab the first object then finishes
+// console.log(petFinder.displayModal);
+
+//problem: its remembering every thing you click and displaying the shelter info for every dog you have previously clicked
+//question: how can I tell the event listener to remember only the last dogBox you have clicked? 
+			//how can I tell an event listener to only remember last item clicked?
 
 
 
