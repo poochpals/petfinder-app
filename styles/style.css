@@ -142,7 +142,6 @@ body {
 header {
   height: 100vh;
   max-width: 100%;
-  background: url() #a7e2b7;
   padding: 17% 0; }
   header h1 {
     font-family: "Archivo Black", sans-serif;
@@ -160,6 +159,14 @@ header {
     margin: 50px 0 0 0; }
     header form input {
       margin: 0 auto; }
+
+.bg-video {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; }
 
 section {
   padding: 7% 0; }
@@ -213,3 +220,24 @@ footer {
   footer p {
     padding: 3px 0;
     margin: 0; }
+
+.alert {
+  position: fixed;
+  top: 50px;
+  right: 30px;
+  bottom: 50px;
+  left: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+  border-radius: 10px;
+  border: 3px solid grey; }
+  .alert .message {
+    position: absolute; }
+  .alert #close {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0; }
+
+.hidden {
+  display: none; }

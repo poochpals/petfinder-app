@@ -106,17 +106,27 @@ petFinder.getShelter = function(shelterId) {
 			dataType: 'jsonp',
 			method: 'GET'
 		}).then(function(res){
+<<<<<<< HEAD
 			// var shelter = res.petfinder.shelter.name.$t
 			console.log(res.petfinder.shelter.name.$t);
 			// var shelterName = res.petfinder.shelter.name.$t;
 			// console.log(res);
 
+=======
+			console.log(res.petfinder.shelter);
+>>>>>>> master
 			// petFinder.displayModal(res.petfinder.shelter);
 		});
 	});
 };
 
 
+<<<<<<< HEAD
+=======
+// petFinder.displayModal = function(shelter) {
+	
+// }
+>>>>>>> master
 
 // petFinder.displayModal = function(shelter) {
 
