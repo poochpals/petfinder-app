@@ -16,57 +16,122 @@ html {
 
 body {
 	@include fontSize(16);
-	font-family: "Montserrat"
+	font-family: "Montserrat";
+	max-width: 1280px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
-
 .wrapper {
-	max-width: 80%;
+	width: 80%; 
 	margin: 0 auto;
 }
-
 // HEADER
-
+nav {
+	background: rgba(167, 226, 183, 0.9);
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 99999999999;
+	// display: none;
+	ul {
+		display: flex;
+		// justify-content: space-between;
+		margin: 0;
+		li {
+			list-style: none;
+			p{
+				color: black;
+				font-family: "Archino Black", sans-serif;
+				font-weight: 700;
+				letter-spacing: 0.5rem;
+				color: $purple;
+				margin: 15px 0 0 -8px;
+				text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+			}
+			img {
+				margin:0 auto;
+				margin: 5px 15px 0 0;
+				padding: 3%;
+			}
+		}
+	}
+}
 
 header {
 	height: 100vh;
-	max-width: 100%;
-	// background: url() $seafoam;
-	padding: 17% 0;
+	background: url(../assets/puppyhero.jpeg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: table;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	.box {
+		background: rgba(255,255,255, 0.6);
+		border: 4px solid $seafoam;
+		width: 10%;
+		margin: 10% 0 0 62%;
+		padding: 0 2% 5%;
+	}
 	h1 {
-		font-family: "Archivo Black", sans-serif;
-		color: black;
-		text-align: center;
-		@include fontSize(70);
+		font-family: "Archino Black", sans-serif;
+		color: $seafoam;
+		text-align: center; 
+		@include fontSize(80);
+		padding: 10% 0 0;
+		margin: 5% 0 0;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 	}
 	p {
-		text-align: center;
-		@include fontSize(18);
-		font-weight: 200;
+		font-family: "Montserrat", sans-serif;
+		color: black;
+		text-align: center; 
+		@include fontSize(15);
+		letter-spacing: .2rem;
+		padding: 0;
+		color: $purple;
+		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 	}
+}
+
+.search {
+	background: $seafoam;
+	padding: 1%;
+	margin: 0 auto;
 	form {
 		text-align: center;
 		margin: 50px 0 0 0;
 		input {
 			margin: 0 auto;
+			padding: 1% 10%;
+		}
+		input, textarea {
+			color: $purple;
+			font-size: 2rem;
 		}
 	}
 }
-
-.bg-video {
-	position: fixed;  
-    height: 100%;   
-    width: 100%;   
-    top: 0;   
-    left: 0;  
-    z-index: -1; 
+.searchLogo {
+	margin: 0 46% -50px;
+	padding: 0;
 }
-// DOG SECTION
 
+.number {
+	color: $purple;
+}
+
+// DOG SECTION
 section {
-	padding: 7% 0;
+	padding: 0% 0;
 	h2 {
 		@include fontSize(32);
 		text-align: center;
+		color: $green;
 	}
 }
 div.dogGallery {
@@ -75,46 +140,94 @@ div.dogGallery {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	div.dogBox {
-		flex: 1 0 calc(15% - 20px);
-		height: 150px;
+		flex: 1 0 calc(25% - 20px);
+		height: 250px;
 		margin: 10px;
 		padding: 0;
 		background: $green;
 		position: relative;
 	}
 }
-	div.overlay {
-		background: $green;
-		color: black;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		opacity: 0;
-		margin: 0;
-		padding:0;
-		transition: opacity 0.5s;
+div.overlay {
+	background: rgba(208,203,113,0.7);
+	color: $purple;
+	position: absolute;
+	top: 5px;
+	bottom: 5px;
+	left: 5px;
+	right: 5px;
+	opacity: 0;
+	margin: 0;
+	padding:5;
+	transition: opacity 0.5s;
+	p {
+		padding: 2%;
 	}
-
-
+	.dogName {
+		text-align: center;
+		font-family: "Montserrat";
+		font-weight: 700;
+		@include fontSize(20);
+	}
+}
 .dogGallery .dogBox:hover div.overlay {
 	opacity: 1;
 }
 
 
 // FOOTER
-
 footer {
-	margin-top: 15%;
-	text-align: center;
-	background: $seafoam;
-	margin: 0;
+margin-top: 15%;
+text-align: center;
+background: $seafoam;
+margin: 0;
+	ul {
+		display: flex;
+		list-style: none;
+		margin: 0 auto;
+		width: 30%;
+	}
+	li {
+		margin: 0 auto;
+	}
 	p {
 		padding: 3px 0;
 		margin: 0;
 	}
+	i {
+		color: $purple;
+		margin: 3px 0 0 0;
+	}
 }
+
+.hide {
+	display: none;
+}
+.hide2 {
+	display: none;
+}
+.hide3 {
+	display: none;
+}
+.hidden {
+	display: none;
+}
+#close {
+	display: none;
+}
+.show {
+	display: flex;
+}
+.show2 {
+	display: block;
+}
+.show3 {
+	display: flex;
+}
+.show4 {
+	display: block;
+}
+
 
 // MODAL
 <<<<<<< HEAD
@@ -178,7 +291,3 @@ footer {
 	}
 }
 
-.hidden {
-	display: none;
-}
->>>>>>> master

@@ -51,11 +51,10 @@ petFinder.displayPets = function(pets) {
 			// console.log("inside displayPets");
 			// console.log(pets[i].media.photos.photo[0].$t);
 			var $dogBox = $('<div>').addClass('dogBox').css({
-				"background": "url("+pets[i].media.photos.photo[0].$t+")no-repeat",
+				"background": "url("+pets[i].media.photos.photo[2].$t+")no-repeat",
 				"background-size": "cover"}).data("shelter", value.shelterId.$t);
 			var $link = $("<a>").attr('href','#');
 			var $overlay = $('<div>').addClass('overlay');
-
 			//storing data in a variable to get to later!
 			$overlay.data({
 				'name': value.name.$t,
@@ -64,6 +63,7 @@ petFinder.displayPets = function(pets) {
 				'breed': value.breeds.breed.$t,
 				'shelter': value.shelterId.$t
 			});
+			console.log(value.length);
 
 			//displaying dog info on hover
 			$overlay
@@ -79,7 +79,12 @@ petFinder.displayPets = function(pets) {
 			$link.append($overlay);
 			$dogBox.append($link);
 			$('.dogGallery').append($dogBox);
-
+			$('.number').text(value.length);
+			$(".hide").addClass("show");
+			$(".hide2").addClass("show2");
+			$('.hide3').addClass('show3 animated fadeIn');
+			$('html, body').animate({
+            scrollTop: $("div.dogGallery").offset().top-120}, 1000);
 		}
 	});
 };
@@ -88,7 +93,7 @@ petFinder.displayPets = function(pets) {
 //we need to put this event listener outside of the loop(each) above!
 $("body").on("click",".dogBox",function(e) {
 	e.preventDefault();
-	// console.log($(this).data('shelter'));
+	console.log($(this).data('shelter'));
 	petFinder.getShelter($(this).data('shelter'));
 }); 
 
@@ -106,27 +111,24 @@ petFinder.getShelter = function(shelterId) {
 			dataType: 'jsonp',
 			method: 'GET'
 		}).then(function(res){
-<<<<<<< HEAD
+
 			// var shelter = res.petfinder.shelter.name.$t
 			console.log(res.petfinder.shelter.name.$t);
 			// var shelterName = res.petfinder.shelter.name.$t;
 			// console.log(res);
 
-=======
 			console.log(res.petfinder.shelter);
->>>>>>> master
 			// petFinder.displayModal(res.petfinder.shelter);
 		});
+		$(".hidden").addClass("show4");
+		$('#close').addClass('show');
 	});
 };
 
-
-<<<<<<< HEAD
-=======
 // petFinder.displayModal = function(shelter) {
 	
 // }
->>>>>>> master
+
 
 // petFinder.displayModal = function(shelter) {
 
@@ -151,6 +153,7 @@ petFinder.getShelter = function(shelterId) {
 petFinder.init = function() {
   petFinder.getLocation();
   petFinder.displayPets();
+  petFinder.getShelter();
 };
 
 //Document ready. Runs everything once it's ready. 
