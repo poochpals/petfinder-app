@@ -2,48 +2,81 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Pooch Pals!</title>
+	<title>Pooch Pals</title>
 	<link href='https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="styles/flickity.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/animate.css">
 </head>
 <body>
+<!-- Header -->
 	<header>
-		<div class="wrapper">
-		<div class="bg-video">
-			<video src="assets/dogs.mov" autoplay></video>
-		</div>
+		<nav class="hide3">
+			<ul>
+				<li>
+					<a href=""><img src="assets/doglogo2.png" height="35" width="35" alt="Pooch Pals logo" class="logo"></a>
+				</li>
+				<li>
+					<p>Pooch Pals!</p>
+				</li>
+			</ul>
+		</nav>
+		<div class="box">
 			<h1>Pooch Pals!</h1>
-<!-- 			<div>
-				<img src="assets/doglogo2.png" alt="">
-			</div> -->
-		
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, illum cupiditate animi est fugiat excepturi, voluptatem dignissimos ipsum ab placeat culpa quos sapiente deserunt!</p>
-			<form action="" class="searchForm">
-				<input type="search" placeholder="Enter your postal code or City and Province" id="submitButton">
-				<!-- <input type="submit" id="submitButton"> -->
-			</form>
-		</div> <!-- /wrapper -->	
+			<p>Adopt a pooch for a PAWSITIVELY amazing lifelong friendship!</p>
+		</div>
 	</header>
-	
+
+<!-- Search Area -->
+	<div class="search">
+		<img src="assets/doglogo2.png" height="70" width="70" alt="" class="searchLogo">
+		<p>Find A Pooch Near You That's Looking For A Forever Home</p>
+		<form action="" class="searchForm">
+				<input type="search" placeholder="Enter your postal code" id="submitButton">
+			</form>
+	</div>
+
+<!-- Gallery Results -->
 	<section class="wrapper">
-		<h2>There are <span>#</span>pooches available</h2> 	
-		<div class="dogGallery"> 
-		</div> <!-- /dogGallery -->
+		<h2 class="hide2">There are <span class="number"></span> pooches available</h2> 	
+		<div class="dogGallery"></div> <!-- /dogGallery -->
 	</section> <!-- /wrapper -->
-	
-	<footer>
-		<p>Created with love by Sam, Tiff, and Lester</p>
+<!-- Modal -->
+	<div class="alert hidden">
+		<div class="message">Hello</div>
+		<a href="#" id="close">X</a>
+	</div> 
+<!-- Footer -->
+	<footer class="hide">
+		<ul>
+			<li><p>Created with</p></li>
+			<li><i class="fa fa-heart"></i></li>
+			<li><p>by Sam, Tiff, and Lester</p></li>
+		</ul>
 	</footer>
 
-	<div class="alert hidden">
-		<div class="message">Hello
-		</div>
-		<a href="#" id="close">close</a>
-	</div> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<!-- 	// <script src="scripts/flickity.pkgd.min.js"></script> -->
-	<script src="scripts/script.js"></script>
+<!-- Javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="scripts/script.js"></script>
+<!-- <script src="scripts/flickity.pkgd.min.js"></script> -->
 </body>
 </html>
+
+
+<!-- CREDITS
+Puppy Hero: Andrew Pons
+Doggy Logo : Made by M. Turan Ercan from the noun project
+Bone: Alex Fuller
+Bone Outline: Creative Stall
+Dog House:  Виталий Плут
+Pawprint: Jono Freeman
+Pumi: Loren Holloway
+Puppy:Boudewijn Mijnlieff
+Terrier: Loren Holloway
+Bulldog: Randall Barriga
+Poodle:  Anna Pigem
+
+
+
+ -->
