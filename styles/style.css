@@ -149,7 +149,7 @@ nav {
   padding: 0;
   position: fixed;
   width: 100%;
-  z-index: 99999999999; }
+  z-index: 100; }
   nav ul {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -181,8 +181,8 @@ header {
   header .box {
     background: rgba(255, 255, 255, 0.6);
     border: 4px solid #a7e2b7;
-    width: 60%;
-    margin: 15% auto;
+    width: 10%;
+    margin: 10% 0 0 62%;
     padding: 0 2% 5%; }
   header h1 {
     font-family: "Archino Black", sans-serif;
@@ -246,9 +246,9 @@ div.dogGallery {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   div.dogGallery div.dogBox {
-    -webkit-flex: 1 0 calc(25% - 20px);
-        -ms-flex: 1 0 calc(25% - 20px);
-            flex: 1 0 calc(25% - 20px);
+    -webkit-flex: 1 0 calc(20% - 20px);
+        -ms-flex: 1 0 calc(20% - 20px);
+            flex: 1 0 calc(20% - 20px);
     height: 250px;
     margin: 10px;
     padding: 0;
@@ -330,3 +330,26 @@ footer {
 
 .show4 {
   display: block; }
+
+#cool {
+  position: fixed;
+  top: 50px;
+  right: 30px;
+  bottom: 50px;
+  left: 50px;
+  background: #fff;
+  z-index: 999999;
+  border-radius: 10px;
+  border: 3px solid grey; }
+
+.message {
+  font-size: 4rem; }
+
+#closeButton {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0; }
+
+.hideModal {
+  display: none; }

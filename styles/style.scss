@@ -33,7 +33,7 @@ nav {
 	padding: 0;
 	position: fixed;
 	width: 100%;
-	z-index: 99999999999;
+	z-index: 100;
 	// display: none;
 	ul {
 		display: flex;
@@ -140,7 +140,7 @@ div.dogGallery {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	div.dogBox {
-		flex: 1 0 calc(25% - 20px);
+		flex: 1 0 calc(20% - 20px);
 		height: 250px;
 		margin: 10px;
 		padding: 0;
@@ -230,64 +230,36 @@ margin: 0;
 
 
 // MODAL
-<<<<<<< HEAD
-// .alert {
-// 	position: fixed;
-// 	top: 50px;
-// 	right: 30px;
-// 	bottom: 50px;
-// 	left: 50px;
-// 	background: rgba(255,255,255,0.9);
-// 	z-index: 100;
-// 	border-radius: 10px;
-// 	border: 3px solid grey;
 
-// 	.message {
-// 		position: absolute; 
-// 		// top: 50%;
-// 		// text-align: center;
-// 		// left: 0;
-// 		// right: 0;
-// 		// font-size: 4rem;
-// 	}
-
-// 	#close {
-// 	    position:absolute;
-// 	    display:block;
-// 	    top: 0;
-// 	    right: 0;
-// 	}
-// }
-
-// .hidden {
-// 	// display: none;
-// }
-=======
-.alert {
+#cool {
 	position: fixed;
 	top: 50px;
 	right: 30px;
 	bottom: 50px;
 	left: 50px;
-	background: rgba(255,255,255,0.9);
-	z-index: 100;
+	background: #fff;
+	z-index: 999999;
 	border-radius: 10px;
 	border: 3px solid grey;
+}
 
-	.message {
-		position: absolute; 
-		// top: 50%;
-		// text-align: center;
-		// left: 0;
-		// right: 0;
-		// font-size: 4rem;
-	}
+.message {
+	// position: absolute; 
+	// top: 20%;
+	// text-align: center;
+	// left: 0;
+	// right: 0;
+	font-size: 4rem;
+}
 
-	#close {
-	    position:absolute;
-	    display:block;
-	    top: 0;
-	    right: 0;
-	}
+#closeButton {
+    position:absolute;
+    display:block;
+    top: 0;
+    right: 0;
+}
+
+.hideModal {
+	display: none;
 }
 
