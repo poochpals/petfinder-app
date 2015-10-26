@@ -43,14 +43,14 @@ petFinder.displayPets = function(pets) {
 			var $overlay = $('<div>').addClass('overlay');
 
 			//storing data in a variable to get to later!
-			$overlay.data({
+			petFinder.overlayInfo = {
 				'name': value.name.$t,
 				'age': value.age.$t,
 				'sex': value.sex.$t,
 				'breed': value.breeds.breed.$t,
 				'shelter': value.shelterId.$t,
 				'photo': pets[i].media.photos.photo[2].$t
-			});
+			};
 			
 			//displaying dog info on hover
 			$overlay
@@ -123,10 +123,16 @@ petFinder.displayModal = function(shelterInfo) {
 	$('.dogGallery').on('click', '.overlay', function(event) {
 		event.preventDefault();
 		$('div').removeClass('hidden');
-			var shelterName = $('<h2>').text(shelterInfo.petfinder.shelter.name.$t);
-			var shelterZip = $('<p>').text(shelterInfo.petfinder.shelter.zip.$t);
-			var shelterEmail = $('<p>').text(shelterInfo.petfinder.shelter.email.$t);
-			var shelterContainer = $('.message').append(shelterName, shelterZip, shelterEmail);
+			var dogName = $('<h2>').text('Meet ' + petFinder.overlayInfo.name);
+			var dogPhoto = $('<img>').attr('src', petFinder.overlayInfo.photo);
+			var dogBreed = $('<p class=dogModal>').text(petFinder.overlayInfo.breed);
+			var dogSex = $('<p class=dogModal>').text(petFinder.overlayInfo.sex);
+			var dogAge = $('<p class=dogModal>').text(petFinder.overlayInfo.age);
+			var shelterName = $('<p class=dogModal>').text('For more information contact ' + shelterInfo.petfinder.shelter.name.$t);
+			var shelterZip = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.zip.$t);
+			var shelterEmail = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.email.$t);
+			var shelterContainer = $('.message').append(dogName, dogPhoto, dogBreed, dogSex, dogAge,shelterName, shelterZip, shelterEmail);
+
 	});
 }
 
@@ -138,6 +144,10 @@ petFinder.init = function() {
 //Document ready. Runs everything once it's ready. 
 $(document).ready(function(){
 	  petFinder.init();
+	  $('#closeButton').on('click', function(event) {
+	  	event.preventDefault();
+	  	$('.alert').addClass('hidden');
+	  });
 
 	
 });
