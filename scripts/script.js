@@ -43,7 +43,7 @@ petFinder.displayPets = function(pets) {
 			var $overlay = $('<div>').addClass('overlay');
 
 			//storing data in a variable to get to later!
-			$overlay.data('doggy',{
+			$overlay.data({
 				'name': value.name.$t,
 				'age': value.age.$t,
 				'sex': value.sex.$t,
@@ -79,7 +79,7 @@ petFinder.displayPets = function(pets) {
 	$(".dogBox").on("click",function(e) {
 		e.preventDefault();
 		//This is passing the shelter ID corresponding to the DOG the user selected
-		petFinder.getShelter($(this).data('shelter'), $(this).data);
+		petFinder.getShelter($(this).data('shelter'));
 	});
 
 };
@@ -97,7 +97,7 @@ var clearDogs = function(){
  
 
 //This method gets the shelter information
-petFinder.getShelter = function(shelterId, dataObject) {
+petFinder.getShelter = function(shelterId) {
 
 	//Second ajax call to get shelter info:
 	var apiurl2 = 'http://api.petfinder.com/shelter.get?key=' + petFinder.apiKey + '&id=' + shelterId + '&format=json';
@@ -108,7 +108,7 @@ petFinder.getShelter = function(shelterId, dataObject) {
 	}).then(function(res){
 		
 		//This is passing the shelter information AND the dog object from each dog selected to the displayModal
-		petFinder.displayModal(res, dataObject)
+		petFinder.displayModal(res)
 		// console.log(dataObject);
 
 	});
@@ -117,15 +117,17 @@ petFinder.getShelter = function(shelterId, dataObject) {
 };
 
 //This method displays the modal
-petFinder.displayModal = function(shelterInfo, dogInfo) {
-	var shelterName = shelterInfo.petfinder.shelter.name.$t;
-	var shelterZip = shelterInfo.petfinder.shelter.zip.$t;
-	var shelterEmail = shelterInfo.petfinder.shelter.email.$t;
-	// console.log(dogInfo);
-	// $('#modal').click(function(event) {
-	// 	event.preventDefault();
-	// 	$('#results').removeClass("hidden");
-	// });
+petFinder.displayModal = function(shelterInfo) {
+
+
+	$('.dogGallery').on('click', '.overlay', function(event) {
+		event.preventDefault();
+		$('div').removeClass('hidden');
+			var shelterName = $('<h2>').text(shelterInfo.petfinder.shelter.name.$t);
+			var shelterZip = $('<p>').text(shelterInfo.petfinder.shelter.zip.$t);
+			var shelterEmail = $('<p>').text(shelterInfo.petfinder.shelter.email.$t);
+			var shelterContainer = $('.message').append(shelterName, shelterZip, shelterEmail);
+	});
 }
 
 //Initalizes  
@@ -137,6 +139,7 @@ petFinder.init = function() {
 $(document).ready(function(){
 	  petFinder.init();
 
+	
 });
 
 // - user inputs location and submits 
