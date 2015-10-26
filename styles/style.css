@@ -313,6 +313,9 @@ footer {
   footer i {
     color: #7426d9;
     margin: 3px 0 0 0; }
+  footer a {
+    text-decoration: none;
+    color: black; }
 
 .hide {
   display: none; }
