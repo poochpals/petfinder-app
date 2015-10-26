@@ -68,8 +68,8 @@ petFinder.displayPets = function(pets) {
 			$(".hide").addClass("show");
 			$(".hide2").addClass("show2");
 			$('.hide3').addClass('show3 animated fadeIn');
-			$('html, body').animate({
-            scrollTop: $("#gallery").offset().top - 120}, 1000);
+			// $('html, body').animate({
+   //          scrollTop: $("#gallery").offset().top - 120}, 1000);
 		}
 	});
 	
