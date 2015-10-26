@@ -64,28 +64,30 @@ header {
 	background-size: cover;
 	margin: 0;
 	padding: 0 0;
+	position: relative;
 	.box {
 		background: rgba(255,255,255, 0.6);
 		border: 4px solid $seafoam;
 		width: 40%;
-		padding: 0 2% 5%;
+		padding: 20% 2% 5%;
 		margin: 0 55%;
-		height: 100vh;
+		position: absolute;
+		top: 120px;
 	}
 	h1 {
 		font-family: "Archino Black", sans-serif;
 		color: $seafoam;
 		text-align: center; 
 		@include fontSize(80);
-		// padding: 5% 0 0;
-		// margin: 5% 0 0;
-		padding-top: 27%;
+		padding: 0 0;
+		position: absolute;
+		top:0;
 		text-transform: uppercase;
 		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 	}
 	p {
 		font-family: "Montserrat", sans-serif;
-		color: black;
+		color: $purple;
 		text-align: center; 
 		@include fontSize(15);
 		letter-spacing: .2rem;
@@ -100,6 +102,14 @@ header {
 	padding: 1%;
 	margin: 0 auto;
 	text-align: center;
+	p {
+		color: $purple;
+		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+		letter-spacing: .2rem;
+		@include fontSize(15);
+		margin: 0;
+		padding: 0;
+	}
 	form {
 		text-align: center;
 		margin: 50px 0 0 0;

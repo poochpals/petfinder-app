@@ -33,7 +33,6 @@ petFinder.getData = function(location) {
 petFinder.displayPets = function(pets) {
 	clearDogs();
 	$.each(pets, function(i, value){
-	
 		if(pets[i].media.photos !== undefined) {
 			
 			var $dogBox = $('<div>').addClass('dogBox').css({
@@ -62,7 +61,6 @@ petFinder.displayPets = function(pets) {
 				$overlay
 					.append("<p>" + value.breeds.breed.$t);
 			}
-
 			$link.append($overlay);
 			$dogBox.append($link);
 			$('.dogGallery').append($dogBox);
@@ -70,9 +68,8 @@ petFinder.displayPets = function(pets) {
 			$(".hide").addClass("show");
 			$(".hide2").addClass("show2");
 			$('.hide3').addClass('show3 animated fadeIn');
-			// $('html, body').animate({
-   //          scrollTop: $("div.dogGallery").offset().top - 120
-   //      }, 1000);
+			$('html, body').animate({
+            scrollTop: $("#gallery").offset().top - 120}, 1000);
 		}
 	});
 	
@@ -112,6 +109,7 @@ petFinder.getShelter = function(shelterId) {
 		// console.log(dataObject);
 
 	});
+
 	// $(".hidden").addClass("show4");
 	// $('#close').addClass('show');
 };
@@ -148,8 +146,6 @@ $(document).ready(function(){
 	  	event.preventDefault();
 	  	$('.alert').addClass('hidden');
 	  });
-
-	
 });
 
 // - user inputs location and submits 
