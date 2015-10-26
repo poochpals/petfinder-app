@@ -148,8 +148,7 @@ nav {
   margin: 0;
   padding: 0;
   position: fixed;
-  width: 100%;
-  z-index: 100; }
+  width: 100%; }
   nav ul {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -331,25 +330,20 @@ footer {
 .show4 {
   display: block; }
 
-#cool {
+.alert {
   position: fixed;
-  top: 50px;
-  right: 30px;
-  bottom: 50px;
-  left: 50px;
-  background: #fff;
-  z-index: 999999;
-  border-radius: 10px;
-  border: 3px solid grey; }
-
-.message {
-  font-size: 4rem; }
-
-#closeButton {
-  position: absolute;
-  display: block;
   top: 0;
-  right: 0; }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 100; }
+  .alert .message {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 4rem; }
 
-.hideModal {
+.hidden {
   display: none; }
