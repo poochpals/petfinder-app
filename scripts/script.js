@@ -37,19 +37,19 @@ petFinder.displayPets = function(pets) {
 			
 			var $dogBox = $('<div>').addClass('dogBox').css({
 				"background": "url("+pets[i].media.photos.photo[2].$t+")no-repeat",
-				"background-size": "cover"}).data("shelter", value.shelterId.$t);
+				"background-size": "cover"});
 			var $link = $("<a>").attr('href','#');
 			var $overlay = $('<div>').addClass('overlay');
 
 			//storing data in a variable to get to later!
-			petFinder.overlayInfo = {
+			$dogBox.data({
 				'name': value.name.$t,
 				'age': value.age.$t,
 				'sex': value.sex.$t,
 				'breed': value.breeds.breed.$t,
 				'shelter': value.shelterId.$t,
 				'photo': pets[i].media.photos.photo[2].$t
-			};
+			});
 			
 			//displaying dog info on hover
 			$overlay
@@ -68,15 +68,15 @@ petFinder.displayPets = function(pets) {
 			$(".hide").addClass("show");
 			$(".hide2").addClass("show2");
 			$('.hide3').addClass('show3 animated fadeIn');
-			// $('html, body').animate({
-   //          scrollTop: $("#gallery").offset().top - 120}, 1000);
+
 		}
 	});
+			$('html, body').animate({scrollTop: $("#gallery").offset().top - 120}, 1000);
 	
 	$(".dogBox").on("click",function(e) {
 		e.preventDefault();
 		//This is passing the shelter ID corresponding to the DOG the user selected
-		petFinder.getShelter($(this).data('shelter'));
+		petFinder.getShelter($(this).data());
 	});
 
 };
@@ -94,10 +94,10 @@ var clearDogs = function(){
  
 
 //This method gets the shelter information
-petFinder.getShelter = function(shelterId) {
+petFinder.getShelter = function(dogInfo) {
 
 	//Second ajax call to get shelter info:
-	var apiurl2 = 'http://api.petfinder.com/shelter.get?key=' + petFinder.apiKey + '&id=' + shelterId + '&format=json';
+	var apiurl2 = 'http://api.petfinder.com/shelter.get?key=' + petFinder.apiKey + '&id=' + dogInfo.shelter + '&format=json';
 	$.ajax({
 		url: apiurl2,
 		dataType: 'jsonp',
@@ -105,7 +105,7 @@ petFinder.getShelter = function(shelterId) {
 	}).then(function(res){
 		
 		//This is passing the shelter information AND the dog object from each dog selected to the displayModal
-		petFinder.displayModal(res)
+		petFinder.displayModal(res, dogInfo)
 		// console.log(dataObject);
 
 	});
@@ -115,24 +115,20 @@ petFinder.getShelter = function(shelterId) {
 };
 
 //This method displays the modal
-petFinder.displayModal = function(shelterInfo) {
-
-
-	$('.dogGallery').on('click', '.overlay', function(event) {
-		event.preventDefault();
+petFinder.displayModal = function(shelterInfo, dogInfo) {
+	
+		$('.message').empty();
 		$('div').removeClass('hidden');
-			var dogName = $('<h2>').text('Meet ' + petFinder.overlayInfo.name);
-			var dogPhoto = $('<img>').attr('src', petFinder.overlayInfo.photo);
-			var dogBreed = $('<p class=dogModal>').text(petFinder.overlayInfo.breed);
-			var dogSex = $('<p class=dogModal>').text(petFinder.overlayInfo.sex);
-			var dogAge = $('<p class=dogModal>').text(petFinder.overlayInfo.age);
-			var shelterName = $('<p class=dogModal>').text('For more information contact ' + shelterInfo.petfinder.shelter.name.$t);
-			var shelterZip = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.zip.$t);
-			var shelterEmail = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.email.$t);
-			var shelterContainer = $('.message').append(dogName, dogPhoto, dogBreed, dogSex, dogAge,shelterName, shelterZip, shelterEmail);
-
-	});
-}
+		var dogName = $('<h2>').text('Meet ' + dogInfo.name);
+		var dogPhoto = $('<img>').attr('src', dogInfo.photo);
+		var dogBreed = $('<p class=dogModal>').text(dogInfo.breed);
+		var dogSex = $('<p class=dogModal>').text(dogInfo.sex);
+		var dogAge = $('<p class=dogModal>').text(dogInfo.age);
+		var shelterName = $('<p class=dogModal>').text('For more information contact ' + shelterInfo.petfinder.shelter.name.$t);
+		var shelterZip = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.zip.$t);
+		var shelterEmail = $('<p class=dogModal>').text(shelterInfo.petfinder.shelter.email.$t);
+		var shelterContainer = $('.message').append(dogName, dogPhoto, dogBreed, dogSex, dogAge,shelterName, shelterZip, shelterEmail);
+};
 
 //Initalizes  
 petFinder.init = function() {
