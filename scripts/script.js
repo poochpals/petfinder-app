@@ -52,6 +52,14 @@ petFinder.displayPets = function(pets) {
 			});
 			
 			//displaying dog info on hover
+
+			// if (value.sex.$t === 'M') {
+			// 	.append("<p>" + 'Male');
+			// }
+			// else {
+			// 	.append("<p>" + 'Female');
+			// }	
+
 			$overlay
 				.html("<p class=dogName>"+ value.name.$t)
 				.append("<p>" + value.age.$t)
@@ -67,8 +75,6 @@ petFinder.displayPets = function(pets) {
 			$('.number').text(value.length);
 			$(".hide").addClass("show");
 			$(".hide2").addClass("show2");
-			$('.hide3').addClass('show3 animated fadeIn');
-
 		}
 	});
 			$('html, body').animate({scrollTop: $("#gallery").offset().top - 120}, 1000);
