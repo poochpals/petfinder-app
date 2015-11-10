@@ -6,13 +6,13 @@
 	font-size: ($fontSize / 10) * 1rem;
 }
 
-$orange: #FB6B2A;
+$orange: #fb9a6e;
 
 // #F0544F;
 
 $blue: #C6D8D3;
 $white: #FDF0D5;
-$purple: #190B28;
+$purple: #45373c;
 
 
 
@@ -22,7 +22,6 @@ html {
 
 body {
 	@include fontSize(16);
-	font-family: "Montserrat";
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -53,31 +52,30 @@ header {
 	padding: 0 0;
 	position: relative;
 	.box {
-		background: rgba(253, 240, 213, 0.7);
+		background: rgba(249,241,237,0.6);
 		border: 4px solid $purple;
-		width: 30%;
-		padding: 20% 2% 5%;
+		width: 40%;
+		padding: 10% 2% 5%;
 		position: absolute;
 		top: 70px;
-		left: 70px;
+		left: 30px;
 	}
 	h1 {
-		font-family: "Archino Black", sans-serif;
+		font-family: "Raleway" sans-serif;
 		color: $purple;
 		text-align: left; 
-		@include fontSize(80);
+		@include fontSize(70);
 		padding: 0 0;
 		position: absolute;
 		top:0;
-		margin: 50px 0;
+		margin: 50px 0 0 0;
 		text-transform: uppercase;
 		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 	}
 	p {
-		font-family: "Montserrat", sans-serif;
-		color: $purple;
+		font-family: "Yellowtail", script;
 		text-align: left; 
-		@include fontSize(15);
+		@include fontSize(29);
 		letter-spacing: .2rem;
 		padding: 0;
 		color: $purple;
@@ -85,22 +83,27 @@ header {
 	}
 	form {
 		text-align: left;
-		margin: 50px 0 0 0;
-		background-color: rgba(253, 240, 213, 0.7);
+		margin: 40px 0 0 0;
+		background-color: rgba(249,241,237,0);
 		input {
 			padding: 1% 10%;
 		}
 		input[type=search] {
-			padding: 15px 25px 15px 10px;
+			padding: 12px 125px 12px 10px;
 		}
 		input[type=search]:active, input[type=search]:focus, input[type=search]:enabled {
-			background-color: $white;
+			background-color: white;
+			border: 1px solid $purple;
 		}
 		input[type=submit] {
 			background-color: $orange;
 			color: $purple;
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
 			text-transform: uppercase;
-			padding: 15px 30px;
+			border: 1px solid $purple;
+			padding: 12px 25px;
 		}
 	}
 }
@@ -114,18 +117,17 @@ header {
 	}
 	p {
 		text-align: center;
+		font-family: "Yellowtail", script;
+		@include fontSize(29);
+		letter-spacing: 0.2rem;
+		color: $orange;
 	}
 }
-
-// .number {
-// 	color: $purple;
-// }
 
 // DOG SECTION
 
 section.head {
 	padding: 100px 0;
-
 }
 
 section.dogs {
@@ -152,7 +154,7 @@ div.dogGallery {
 	}
 }
 div.overlay {
-	background-color: rgba(253, 240, 213, 0.7);
+	background-color: rgba(255, 219, 198,0.7);
 	color: $purple;
 	position: absolute;
 	top: 5px;
@@ -165,12 +167,19 @@ div.overlay {
 	transition: opacity 0.5s;
 	p {
 		padding: 2%;
+		margin-left: 10px;
+		font-family: "Raleway", sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		color: $purple;
 	}
 	.dogName {
 		text-align: center;
-		font-family: "Montserrat";
+		font-family: "Raleway", sans-serif;
+		text-transform: uppercase;
 		font-weight: 700;
-		@include fontSize(20);
+		letter-spacing: 0.2rem;
+		@include fontSize(22);
 	}
 }
 .dogGallery .dogBox:hover div.overlay {
@@ -182,7 +191,8 @@ div.overlay {
 footer {
 margin-top: 15%;
 text-align: center;
-background: $blue;
+background: $orange;
+color: $purple;
 margin: 0;
 	ul {
 		display: flex;
@@ -240,18 +250,39 @@ margin: 0;
 // MODAL
 .alert {
 	position: fixed;
-	top: 0;
+	top: 5%;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(255,255,255,0.9);
+	background: rgba(249,241,237,0.9);
 	z-index: 100;
+	width: 80%;
+	height: 92%;
+	margin: 0 auto;
+	h2 {
+		color: $orange;
+		font-family: "Yellowtail", sans-serif;
+		// text-transform: uppercase;
+		font-weight: 300;
+		letter-spacing: 0.2rem;
+		@include fontSize(52);
+		margin: 5px 0 0;
+
+	}
+	p {
+		font-family: "Raleway", sans-serif;
+		font-weight: 300;
+		color: $purple;
+	}
 
 	.message {
 		position: absolute; 
 		text-align: center;
 		left: 0;
 		right: 0;
+	}
+	img {
+		width: 20%;
 	}
 }
 
@@ -265,6 +296,7 @@ margin: 0;
 	top: 15px;
 	right: 30px;
 	font-size: 30px;
+	color: $orange;
 }
 
 .alert .message p.dogModal {
