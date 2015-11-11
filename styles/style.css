@@ -73,7 +73,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: .35em .625em .75em; }
+  padding: 0.35em 0.625em 0.75em; }
 
 button, input, select, textarea {
   font-family: inherit;
@@ -83,8 +83,7 @@ button, input, select, textarea {
 button, input {
   line-height: normal; }
 
-button, html input[type=button],
-input[type=reset], input[type=submit] {
+button, html input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer; }
 
@@ -146,7 +145,7 @@ img {
   margin: 0 auto; }
 
 .wrapper {
-  width: 1250px;
+  max-width: 1250px;
   margin: 0 auto; }
 
 header {
@@ -178,11 +177,14 @@ header {
     text-transform: uppercase;
     text-shadow: 1px 1px 2px #969696; }
   header p {
-    font-family: "Yellowtail", script;
+    font-family: "Raleway", sans-serif;
+    font-style: italic;
+    font-weight: 200;
     text-align: left;
-    font-size: 29px;
-    font-size: 2.9rem;
+    font-size: 20px;
+    font-size: 2rem;
     letter-spacing: .2rem;
+    line-height: 1.6;
     padding: 0;
     color: #45373c;
     text-shadow: 1px 1px 2px #969696; }
@@ -193,7 +195,11 @@ header {
     header form input {
       padding: 1% 10%; }
     header form input[type=search] {
-      padding: 12px 125px 12px 10px; }
+      width: 43%;
+      padding: 12px 125px 12px 10px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.2rem; }
     header form input[type=search]:active, header form input[type=search]:focus, header form input[type=search]:enabled {
       background-color: white;
       border: 1px solid #45373c; }
@@ -206,6 +212,28 @@ header {
       text-transform: uppercase;
       border: 1px solid #45373c;
       padding: 12px 25px; }
+    header form ::-webkit-input-placeholder {
+      color: #7e646d;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.2rem; }
+    header form :-moz-placeholder {
+      /* Firefox 18- */
+      color: #7e646d;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.2rem; }
+    header form ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #7e646d;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.2rem; }
+    header form :-ms-input-placeholder {
+      color: #7e646d;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.2rem; }
 
 .resultsHeader {
   padding: 5% 0; }
@@ -215,9 +243,11 @@ header {
     width: 10%; }
   .resultsHeader p {
     text-align: center;
-    font-family: "Yellowtail", script;
-    font-size: 29px;
-    font-size: 2.9rem;
+    font-family: "Raleway", sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    font-size: 2rem;
     letter-spacing: 0.2rem;
     color: #fb9a6e; }
 
@@ -233,7 +263,6 @@ section.dogs {
     color: #45373c; }
 
 div.dogGallery {
-  padding-bottom: 5%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -354,8 +383,9 @@ footer {
   margin: 0 auto; }
   .alert h2 {
     color: #fb9a6e;
-    font-family: "Yellowtail", sans-serif;
-    font-weight: 300;
+    font-family: "Raleway", sans-serif;
+    font-style: italic;
+    font-weight: 700;
     letter-spacing: 0.2rem;
     font-size: 52px;
     font-size: 5.2rem;
@@ -387,3 +417,131 @@ footer {
   padding: 0;
   margin: 0;
   font-size: 30px; }
+
+@media all and (max-width: 1196px) {
+  header h1 {
+    font-size: 60px;
+    font-size: 6rem; }
+  header form input[type=search] {
+    width: 54%;
+    padding: 12px; } }
+
+@media all and (max-width: 1126px) {
+  header form input[type=search] {
+    width: 70%;
+    padding: 12px;
+    margin-bottom: 20px; } }
+
+@media all and (max-width: 1039px) {
+  header h1 {
+    font-size: 50px;
+    font-size: 5rem; }
+  header p {
+    margin-top: 20px;
+    font-size: 16px;
+    font-size: 1.6rem; } }
+
+@media all and (max-width: 867px) {
+  header h1 {
+    font-size: 40px;
+    font-size: 4rem; }
+  header p {
+    margin-top: 40px;
+    font-size: 14px;
+    font-size: 1.4rem; }
+  header form input[type=search] {
+    width: 80%; } }
+
+@media all and (max-width: 790px) {
+  header .box {
+    width: 55%; }
+  footer ul {
+    width: 100%; } }
+
+@media all and (max-width: 684px) {
+  header .box {
+    width: 65%; }
+  div.dogGallery div.dogBox {
+    height: 200px; }
+  div.overlay {
+    font-size: 12px;
+    font-size: 1.2rem; }
+    div.overlay .dogName {
+      font-size: 15px;
+      font-size: 1.5rem; } }
+
+@media all and (max-width: 603px) {
+  .alert h2 {
+    margin-top: 50px;
+    font-size: 30px;
+    font-size: 3rem; }
+  .alert .message p.dogModal {
+    font-size: 22px;
+    font-size: 2.2rem;
+    padding: 10px 0; } }
+
+@media all and (max-width: 495px) {
+  header .box {
+    width: 75%; }
+    header .box p {
+      margin-top: 60px; }
+  div.dogGallery div.dogBox {
+    height: 150px; }
+  div.overlay {
+    font-size: 9px;
+    font-size: 0.9rem; }
+    div.overlay .dogName {
+      font-size: 10px;
+      font-size: 1rem; }
+  .alert h2 {
+    margin-top: 50px;
+    font-size: 20px;
+    font-size: 2rem; }
+  .alert .message p.dogModal {
+    font-size: 12px;
+    font-size: 1.2rem;
+    padding: 10px 0; } }
+
+@media all and (max-width: 380px) {
+  header .box {
+    width: 95%;
+    top: 10px;
+    left: 10px; }
+    header .box p {
+      margin-top: 80px; }
+  div.dogGallery div.dogBox {
+    height: 150px; }
+  div.overlay {
+    font-size: 9px;
+    font-size: 0.9rem; }
+    div.overlay .dogName {
+      font-size: 10px;
+      font-size: 1rem; }
+  div.dogGallery {
+    display: block; }
+    div.dogGallery div.dogBox {
+      height: 350px; }
+  div.overlay {
+    font-size: 18px;
+    font-size: 1.8rem; }
+    div.overlay .dogName {
+      font-size: 22px;
+      font-size: 2.2rem; }
+  .alert .message h2 {
+    margin-top: 50px;
+    font-size: 25px;
+    font-size: 2.5rem; }
+  .alert .message p.dogModal {
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 10px 0; } }
+
+@media all and (max-width: 300px) {
+  .alert h2 {
+    margin-top: 50px;
+    font-size: 15px;
+    font-size: 1.5rem; }
+  .alert .message p.dogModal {
+    font-size: 10px;
+    font-size: 1rem;
+    padding: 10px 0; } }

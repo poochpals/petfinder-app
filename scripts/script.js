@@ -50,15 +50,6 @@ petFinder.displayPets = function(pets) {
 				'shelter': value.shelterId.$t,
 				'photo': pets[i].media.photos.photo[2].$t
 			});
-			
-			//displaying dog info on hover
-
-			// if (value.sex.$t === 'M') {
-			// 	.append("<p>" + 'Male');
-			// }
-			// else {
-			// 	.append("<p>" + 'Female');
-			// }	
 
 			$overlay
 				.html("<p class=dogName>"+ value.name.$t)
@@ -77,7 +68,7 @@ petFinder.displayPets = function(pets) {
 			$(".hide2").addClass("show2");
 		}
 	});
-			$('html, body').animate({scrollTop: $("#gallery").offset().top - 120}, 1000);
+	$('html, body').animate({scrollTop: $("#gallery").offset().top - 350}, 1000);
 	
 	$(".dogBox").on("click",function(e) {
 		e.preventDefault();
@@ -91,12 +82,6 @@ petFinder.displayPets = function(pets) {
 var clearDogs = function(){
 	$(".dogGallery").html(" ");
 }
-
-//On click of each populated box, pass the shelter ID into another ajax call to get shelter information. We need to put this event listener outside of the loop(each) above!
-// $('.dogBox').on('click', function(){
-// 	petFinder.getShelter($(this).data('shelter'));
-// })
-
  
 
 //This method gets the shelter information
@@ -111,13 +96,11 @@ petFinder.getShelter = function(dogInfo) {
 	}).then(function(res){
 		
 		//This is passing the shelter information AND the dog object from each dog selected to the displayModal
-		petFinder.displayModal(res, dogInfo)
+		petFinder.displayModal(res, dogInfo);
 		// console.log(dataObject);
 
 	});
 
-	// $(".hidden").addClass("show4");
-	// $('#close').addClass('show');
 };
 
 //This method displays the modal
