@@ -7,9 +7,6 @@
 }
 
 $orange: #fb9a6e;
-
-// #F0544F;
-
 $blue: #C6D8D3;
 $white: #FDF0D5;
 $purple: #45373c;
@@ -37,7 +34,7 @@ img {
 }
 
 .wrapper {
-	width: 1250px; 
+	max-width: 1250px; 
 	margin: 0 auto;
 }
 
@@ -73,10 +70,13 @@ header {
 		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 	}
 	p {
-		font-family: "Yellowtail", script;
+		font-family: "Raleway", sans-serif;
+		font-style: italic;
+		font-weight: 200;
 		text-align: left; 
-		@include fontSize(29);
+		@include fontSize(20);
 		letter-spacing: .2rem;
+		line-height: 1.6;
 		padding: 0;
 		color: $purple;
 		text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
@@ -89,7 +89,11 @@ header {
 			padding: 1% 10%;
 		}
 		input[type=search] {
+			width: 43%;
 			padding: 12px 125px 12px 10px;
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
 		}
 		input[type=search]:active, input[type=search]:focus, input[type=search]:enabled {
 			background-color: white;
@@ -105,6 +109,32 @@ header {
 			border: 1px solid $purple;
 			padding: 12px 25px;
 		}
+		::-webkit-input-placeholder {
+			color: lighten($purple, 20%);
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+			color: lighten($purple, 20%);
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+			color: lighten($purple, 20%);
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
+		}
+
+		:-ms-input-placeholder {  
+			color: lighten($purple, 20%);
+			font-family: "Raleway", sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.2rem;
+		}
 	}
 }
 
@@ -117,8 +147,10 @@ header {
 	}
 	p {
 		text-align: center;
-		font-family: "Yellowtail", script;
-		@include fontSize(29);
+		font-family: "Raleway", sans-serif;
+		font-style: italic;
+		font-weight: 700;
+		@include fontSize(20);
 		letter-spacing: 0.2rem;
 		color: $orange;
 	}
@@ -139,7 +171,6 @@ section.dogs {
 	}
 }
 div.dogGallery {
-	padding-bottom: 5%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -261,9 +292,12 @@ margin: 0;
 	margin: 0 auto;
 	h2 {
 		color: $orange;
-		font-family: "Yellowtail", sans-serif;
+		font-family: "Raleway", sans-serif;
+		font-style: italic;
+		font-weight: 700;
+		// font-family: "Yellowtail", sans-serif;
 		// text-transform: uppercase;
-		font-weight: 300;
+		// font-weight: 300;
 		letter-spacing: 0.2rem;
 		@include fontSize(52);
 		margin: 5px 0 0;
@@ -303,4 +337,177 @@ margin: 0;
 	padding: 0;
 	margin: 0;
 	font-size: 30px;
+}
+
+
+
+@media all and (max-width: 1196px) {
+	header {
+		h1 {
+			@include fontSize(60);
+		}
+	}
+	header form input[type=search] {
+		width: 54%;
+		padding: 12px;
+	}
+}
+
+@media all and (max-width: 1126px) {
+	header form input[type=search] {
+		width: 70%;
+		padding: 12px;
+		margin-bottom: 20px;
+	}
+}
+
+@media all and (max-width: 1039px) {
+	header {
+		h1 {
+			@include fontSize(50);
+		}
+		p {
+			margin-top: 20px;
+			@include fontSize(16);
+		}
+	}
+}
+
+@media all and (max-width: 867px) {
+	header {
+		h1 {
+			@include fontSize(40);
+		}
+		p {
+			margin-top: 40px;
+			@include fontSize(14);
+		}
+	}	
+	header form input[type=search] {
+		width: 80%;
+	}
+}
+
+
+@media all and (max-width: 790px) {
+	header .box {
+		width: 55%;
+	}
+	footer ul {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 684px) {
+	header .box {
+		width: 65%;
+	}
+	div.dogGallery div.dogBox {
+		height: 200px;
+	}
+	div.overlay {
+		@include fontSize(12);
+		.dogName {
+			@include fontSize(15);
+		}
+	}
+}
+
+
+@media all and (max-width: 603px) {
+	.alert {
+		h2 {
+			margin-top: 50px;
+			@include fontSize(30);
+		}
+		.message p.dogModal {
+			@include fontSize(22);
+			padding: 10px 0;
+		}
+	}
+}
+
+@media all and (max-width: 495px) {
+	header .box {
+		width: 75%;
+		p {
+			margin-top: 60px;
+		}
+	}
+	div.dogGallery div.dogBox {
+		height: 150px;
+	}
+	div.overlay {
+		@include fontSize(9);
+		.dogName {
+			@include fontSize(10);
+		}
+	}
+	.alert {
+		h2 {
+			margin-top: 50px;
+			@include fontSize(20);
+		}
+		.message p.dogModal {
+			@include fontSize(12);
+			padding: 10px 0;
+		}
+	}
+}
+
+@media all and (max-width: 380px) {
+	header .box {
+		width: 95%;
+		top: 10px;
+		left: 10px;
+		p {
+			margin-top: 80px;
+		}
+	}
+	div.dogGallery div.dogBox {
+		height: 150px;
+	}
+	div.overlay {
+		@include fontSize(9);
+		.dogName {
+			@include fontSize(10);
+		}
+	}
+	div.dogGallery {
+		display: block;
+		div.dogBox {
+			height: 350px;
+		}
+	}
+	div.overlay {
+		@include fontSize(18);
+		.dogName {
+			@include fontSize(22);
+		}
+	}
+	.alert {
+		.message {
+			h2 {
+				margin-top: 50px;
+				@include fontSize(25);
+			}
+			p.dogModal {
+				@include fontSize(16);
+				padding: 10px 0;
+			}
+		}
+	}
+
+}
+@media all and (max-width: 300px) {
+	.alert {
+		h2 {
+			margin-top: 50px;
+			@include fontSize(15);
+		}
+		.message p.dogModal {
+			@include fontSize(10);
+			padding: 10px 0;
+		}
+	}
 }
